@@ -14,7 +14,7 @@ go get github.com/unichainplatform/faucet4testnet
 
 ```
 cd path/to/github.com/unichainplatform/faucet4testnet
-go build faucet4testnet.go
+go build faucetServer.go
 ```
 
 ##### 3，创建程序使用的多个子账户
