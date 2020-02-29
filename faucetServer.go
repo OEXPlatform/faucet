@@ -1,4 +1,4 @@
-package faucet4testnet
+package main
 
 import (
 "crypto/ecdsa"
@@ -119,7 +119,7 @@ func main() {
 	prikey, _ := crypto.HexToECDSA(pri)
 
 	cl, _ := strconv.Atoi(*climit)
-	url := "http://120.92.115.77:" + *port
+	url := "http://47.115.149.93:" + *port
 
 	var chain_id int
 	if "33100" == *port {
