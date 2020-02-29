@@ -109,7 +109,7 @@ var db_status_key = []byte("db_status_key")
 var pn = flag.String("pn", "walletservice.u", "user name")
 var pk = flag.String("pk", "", "priv key")
 var climit = flag.String("l", "5", "create limit per user")
-var port = flag.String("p", "33100", "port")
+var host = flag.String("h", "47.115.149.93", "ip")
 
 func main() {
 	flag.Parse()
@@ -119,14 +119,10 @@ func main() {
 	prikey, _ := crypto.HexToECDSA(pri)
 
 	cl, _ := strconv.Atoi(*climit)
-	url := "http://47.115.149.93:" + *port
+	url := "http://" + *host + ":8080"
 
 	var chain_id int
-	if "33100" == *port {
-		chain_id = 1
-	} else if "33000" == *port {
-		chain_id = 100
-	}
+	chain_id = 100
 
 	fmt.Printf("user_name:%v priv_key:%v climit:%v \n", na, pri, cl)
 	fmt.Printf("url:%v chain_id:%v \n", url, chain_id)
