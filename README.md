@@ -48,7 +48,7 @@ nohup ./faucet4testnet -pn walletservice.u -pk xxxxxxxx -l 5 -h 47.115.149.93 &
 默认只能通过本地localhost访问
 
 ```
-http://localhost:12345/wallet_account_creation?accname=arg1&pubkey=0xXXXXXXXXX&deviceid=deviceid
+http://localhost:9001/wallet_account_creation?accname=arg1&pubkey=0xXXXXXXXXX&deviceid=deviceid
 ```
 
 参数：  
