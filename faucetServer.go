@@ -34,7 +34,7 @@ type GenAction struct {
 	PrivateKey *ecdsa.PrivateKey
 }
 
-func createAccount(accountName, from common.Name, nonce uint64, publickey common.PubKey, prikey *ecdsa.PrivateKey, chain_id int) (error, common.Hash) {
+func createAccount(accountName, from common.Name, nonce uint64, publickey common.PubKey, prikey *ecdsa.PrivateKey, chain_id int, amount *big.Int) (error, common.Hash) {
 	account := &accountmanager.CreateAccountAction{
 		AccountName: accountName,
 		Founder:     common.Name(""),
@@ -45,7 +45,7 @@ func createAccount(accountName, from common.Name, nonce uint64, publickey common
 	if err != nil {
 		return fmt.Errorf("rlp payload err %v", err), common.Hash{}
 	}
-	gc := newGeAction(types.CreateAccount, from, "unichain.account", nonce, 0, gaslimit, nil, payload, prikey)
+	gc := newGeAction(types.CreateAccount, from, "unichain.account", nonce, 0, gaslimit, amount, payload, prikey)
 	var gcs []*GenAction
 	gcs = append(gcs, gc)
 	return sendTxTest(gcs, chain_id)
@@ -246,7 +246,7 @@ func main() {
 			cn, _ := tc.GetNonce(sender_na)
 
 			if err, hash := createAccount(common.Name(accname), sender_na, cn,
-				common.HexToPubKey(pubkey), prikey, chain_id); err != nil {
+				common.HexToPubKey(pubkey), prikey, chain_id, new(big.Int).Mul(big.NewInt(10), big.NewInt(1e18))); err != nil {
 				resform.Code = 500
 				resform.Msg = err.Error()
 				break
