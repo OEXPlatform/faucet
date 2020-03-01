@@ -116,7 +116,11 @@ func main() {
 
 	na := *pn
 	pri := *pk
-	prikey, _ := crypto.HexToECDSA(pri)
+	prikey, priErr := crypto.HexToECDSA(pri)
+	if priErr != nil {
+		fmt.Printf("priKey is wrong: %s\n", priErr.Error())
+		return
+	}
 
 	cl, _ := strconv.Atoi(*climit)
 	url := "http://" + *host + ":8080"
