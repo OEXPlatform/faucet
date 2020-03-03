@@ -109,7 +109,6 @@ var db_status_key = []byte("db_status_key")
 var pn = flag.String("pn", "walletservice.u", "user name")
 var pk = flag.String("pk", "", "priv key")
 var climit = flag.String("l", "5", "create limit per user")
-var host = flag.String("h", "47.115.149.93", "ip")
 
 func main() {
 	flag.Parse()
@@ -123,13 +122,8 @@ func main() {
 	}
 
 	cl, _ := strconv.Atoi(*climit)
-	url := "http://" + *host + ":8080"
-
-	var chain_id int
-	chain_id = 100
 
 	fmt.Printf("user_name:%v priv_key:%v climit:%v \n", na, pri, cl)
-	fmt.Printf("url:%v chain_id:%v \n", url, chain_id)
 
 	// level db
 	db_path := "./ldb/"
@@ -157,6 +151,9 @@ func main() {
 			var accname string
 			var pubkey string
 			var deviceid string
+			var rpcHost string
+			var rpcPort string
+			var chainId int
 
 			if val, ok := q["accname"]; ok {
 				accname = val[0]
@@ -179,6 +176,30 @@ func main() {
 			} else {
 				resform.Code = 400
 				resform.Msg = "deviceid miss!"
+				break
+			}
+
+			if val, ok := q["rpchost"]; ok {
+				rpcHost = val[0]
+			} else {
+				resform.Code = 400
+				resform.Msg = "rpchost miss!"
+				break
+			}
+
+			if val, ok := q["rpcport"]; ok {
+				rpcPort = val[0]
+			} else {
+				resform.Code = 400
+				resform.Msg = "rpcport miss!"
+				break
+			}
+
+			if val, ok := q["chainid"]; ok {
+				chainId, _ = strconv.Atoi(val[0])
+			} else {
+				resform.Code = 400
+				resform.Msg = "chainid miss!"
 				break
 			}
 
@@ -211,8 +232,8 @@ func main() {
 			fmt.Printf("db_r:%v\n", db_record)
 
 			// output log
-			fmt.Printf("ip=%s&accname=%s&pukkey=%s&deviceid=%s\n",
-				ip_str, accname, pubkey, deviceid)
+			fmt.Printf("ip=%s&accname=%s&pukkey=%s&deviceid=%s&rpchost=%s&rpcport=%s&chainid=%d\n",
+				ip_str, accname, pubkey, deviceid, rpcHost, rpcPort, chainId)
 
 			// max create count
 			if db_record.Count > uint(cl) {
@@ -244,13 +265,14 @@ func main() {
 			db.Put(db_status_key, db_value[:], nil)
 
 			// rpc create account
+			url := "http://" + rpcHost + ":" + rpcPort
 			tc.SetDefultURL(url)
 			sender_na := common.Name(na + strconv.Itoa(send_pos))
 			fmt.Println("sender_na:", sender_na)
 			cn, _ := tc.GetNonce(sender_na)
 
 			if err, hash := createAccount(common.Name(accname), sender_na, cn,
-				common.HexToPubKey(pubkey), prikey, chain_id, new(big.Int).Mul(big.NewInt(10), big.NewInt(1e18))); err != nil {
+				common.HexToPubKey(pubkey), prikey, chainId, new(big.Int).Mul(big.NewInt(10), big.NewInt(1e18))); err != nil {
 				resform.Code = 500
 				resform.Msg = err.Error()
 				break
