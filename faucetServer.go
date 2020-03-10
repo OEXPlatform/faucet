@@ -37,7 +37,7 @@ type GenAction struct {
 func createAccount(accountName, from common.Name, nonce uint64, publickey common.PubKey, prikey *ecdsa.PrivateKey, chain_id int, amount *big.Int) (error, common.Hash) {
 	account := &accountmanager.CreateAccountAction{
 		AccountName: accountName,
-		Founder:     common.Name(""),
+		Founder:     from,
 		PublicKey:   publickey,
 		Description: "create by unichain wallet",
 	}
@@ -109,6 +109,7 @@ var db_status_key = []byte("db_status_key")
 var pn = flag.String("pn", "walletservice.u", "user name")
 var pk = flag.String("pk", "", "priv key")
 var climit = flag.String("l", "5", "create limit per user")
+var listenPort =  flag.String("lp", "9001", "server listen port")
 
 func main() {
 	flag.Parse()
@@ -123,7 +124,7 @@ func main() {
 
 	cl, _ := strconv.Atoi(*climit)
 
-	fmt.Printf("user_name:%v priv_key:%v climit:%v \n", na, pri, cl)
+	fmt.Printf("user_name:%v priv_key:%v climit:%v listenPort:%v\n", na, pri, cl, listenPort)
 
 	// level db
 	db_path := "./ldb/"
@@ -309,5 +310,5 @@ func main() {
 	})
 
 	//fmt.Println("listen and serve")
-	http.ListenAndServe(":9001", nil)
+	http.ListenAndServe(":" + *listenPort, nil)
 }
