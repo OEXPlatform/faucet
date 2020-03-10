@@ -23,6 +23,7 @@ import (
 
 tc "github.com/unichainplatform/unichain/test/common"
 "net/http"
+	"math/rand"
 )
 
 var (
@@ -92,6 +93,13 @@ func sendTxTest(gcs []*GenAction, chain_id int) (error, common.Hash) {
 	return nil, hash
 }
 
+func RandInt64(min, max int64) int64 {
+	if min >= max || min == 0 || max == 0 {
+		return max
+	}
+	return rand.Int63n(max-min) + min
+}
+
 type RespForm struct {
 	Code int    `json:"code"`
 	Msg  string `json:"msg,omitempty"`
@@ -110,6 +118,8 @@ var pn = flag.String("pn", "walletservice.u", "user name")
 var pk = flag.String("pk", "", "priv key")
 var climit = flag.String("l", "5", "create limit per user")
 var listenPort =  flag.String("lp", "9001", "server listen port")
+var minAmount = flag.Int64("min", 10, "min amount of new account")
+var maxAmount =  flag.Int64("max", 20, "max amount of new account")
 
 func main() {
 	flag.Parse()
@@ -272,8 +282,10 @@ func main() {
 			fmt.Println("sender_na:", sender_na)
 			cn, _ := tc.GetNonce(sender_na)
 
+			amount := RandInt64(*minAmount, *maxAmount)
+
 			if err, hash := createAccount(common.Name(accname), sender_na, cn,
-				common.HexToPubKey(pubkey), prikey, chainId, new(big.Int).Mul(big.NewInt(10), big.NewInt(1e18))); err != nil {
+				common.HexToPubKey(pubkey), prikey, chainId, new(big.Int).Mul(big.NewInt(amount), big.NewInt(1e18))); err != nil {
 				resform.Code = 500
 				resform.Msg = err.Error()
 				break
