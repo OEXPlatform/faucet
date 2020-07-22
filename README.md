@@ -1,19 +1,19 @@
 ## 使用方法
 
-##### 1，使用go命令下载unichain代码，同时下载本代码
+##### 1，使用go命令下载oexchain代码，同时下载本代码
 
 命令  
 
 ```
-go get github.com/unichainplatform/unichain
-go get github.com/unichainplatform/faucet4testnet
+go get github.com/oexplatform/oexchain
+go get github.com/oexplatform/faucet
 ```
 
 
 ##### 2，切换到当前目录，编译代码
 
 ```
-cd path/to/github.com/unichainplatform/faucet4testnet
+cd path/to/github.com/oexplatform/faucet
 go build faucetServer.go
 ```
 
@@ -28,7 +28,7 @@ go build faucetServer.go
 启动程序并传入相应的参数  
 
 ```
-./faucet4testnet -pn walletservice.u -pk xxxxxxxx -l 5
+./faucet4 -pn walletservice.u -pk xxxxxxxx -l 5
 ```
 
 参数解释：  
@@ -39,7 +39,7 @@ go build faucetServer.go
 调试完毕可以做为后台服务启动  
 
 ```
-nohup ./faucet4testnet -pn walletservice.u -pk xxxxxxxx -l 5 &
+nohup ./faucet -pn walletservice.u -pk xxxxxxxx -l 5 &
 ```
 
 ##### 5，调用服务的http接口
@@ -64,7 +64,3 @@ chainid: rpc节点所在链的chainId
 {"code":200,"msg":"0xXXXXXXXXXXXXXX"}
 ```
 
-##### 6，代码修改说明  
-
-- 文件 254 行，调整轮流发送交易账户个数
-- 文件 306 行，调整本地服务监听端口

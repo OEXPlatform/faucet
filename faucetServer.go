@@ -10,18 +10,18 @@ import (
 "strconv"
 "strings"
 
-"github.com/unichainplatform/unichain/accountmanager"
-"github.com/unichainplatform/unichain/common"
-"github.com/unichainplatform/unichain/crypto"
-"github.com/unichainplatform/unichain/types"
-"github.com/unichainplatform/unichain/utils/rlp"
+"github.com/oexplatform/oexchain/accountmanager"
+"github.com/oexplatform/oexchain/common"
+"github.com/oexplatform/oexchain/crypto"
+"github.com/oexplatform/oexchain/types"
+"github.com/oexplatform/oexchain/utils/rlp"
 
 "github.com/syndtr/goleveldb/leveldb"
 "github.com/syndtr/goleveldb/leveldb/errors"
 "github.com/syndtr/goleveldb/leveldb/filter"
 "github.com/syndtr/goleveldb/leveldb/opt"
 
-tc "github.com/unichainplatform/unichain/test/common"
+tc "github.com/oexplatform/oexchain/test/common"
 "net/http"
 	"math/rand"
 )
@@ -40,13 +40,13 @@ func createAccount(accountName, from common.Name, nonce uint64, publickey common
 		AccountName: accountName,
 		Founder:     from,
 		PublicKey:   publickey,
-		Description: "create by unichain wallet",
+		Description: "create by oexchain wallet",
 	}
 	payload, err := rlp.EncodeToBytes(account)
 	if err != nil {
 		return fmt.Errorf("rlp payload err %v", err), common.Hash{}
 	}
-	gc := newGeAction(types.CreateAccount, from, "unichain.account", nonce, 0, gaslimit, amount, payload, prikey)
+	gc := newGeAction(types.CreateAccount, from, "oexchain.account", nonce, 0, gaslimit, amount, payload, prikey)
 	var gcs []*GenAction
 	gcs = append(gcs, gc)
 	return sendTxTest(gcs, chain_id)
