@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e437cc12-24b1-448a-a978-9c42f66482cf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/faucetServer.go" beforeDir="false" afterPath="$PROJECT_DIR$/faucetServer.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,11 +16,8 @@
       <file leaf-file-name="faucetServer.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/faucetServer.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="395">
-              <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
-              <folding>
-                <element signature="e#14#606#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="322">
+              <caret line="14" column="40" lean-forward="true" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -456,11 +451,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/faucetServer.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="395">
-          <caret line="52" column="1" lean-forward="true" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
-          <folding>
-            <element signature="e#14#606#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="322">
+          <caret line="14" column="40" lean-forward="true" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="40" />
         </state>
       </provider>
     </entry>
