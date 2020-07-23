@@ -32,14 +32,17 @@ go build faucetServer.go
 ```
 
 参数解释：  
--pn 用于创建账户的账户名前缀，实际发送交易时会在最后加上一个1～9的数字  
+-pn 用于创建账户的账户名前缀，实际发送交易时会在最后加上一个1～9的数字，如faucetservice.u1，faucetservice.u2 。。。 faucetservice.u9  
 -pk 发送交易的账户私钥，这里认为pn传入的账户使用同一私钥。  
--l 每个ip创建账户的数量限制。  
+-l 每个ip创建账户的数量限制。 
+-lp 开放的监听端口
+-min 创建账户是给予的最小金额的代币
+-maz 创建账户是给予的最小大金额的代币 
 
 调试完毕可以做为后台服务启动  
 
 ```
-nohup ./faucet -pn walletservice.u -pk xxxxxxxx -l 5 &
+nohup ./faucet4testnet -pn faucetservice.u -pk *** -l 50 -lp 9001 -min 100 -max 300 >> testnet.log &
 ```
 
 ##### 5，调用服务的http接口
