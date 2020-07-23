@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e437cc12-24b1-448a-a978-9c42f66482cf" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faucetServer.go" beforeDir="false" afterPath="$PROJECT_DIR$/faucetServer.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,14 +13,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="faucetServer.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="faucetServer.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/faucetServer.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3262">
-              <caret line="115" column="43" lean-forward="true" selection-start-line="115" selection-start-column="43" selection-end-line="115" selection-end-column="43" />
+            <state relative-caret-position="280">
+              <caret line="284" column="55" selection-start-line="284" selection-start-column="55" selection-end-line="284" selection-end-column="55" />
               <folding>
                 <element signature="e#14#606#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../goproject/src/github.com/oexplatform/oexchain/test/common/utils.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -37,8 +46,8 @@
       <file leaf-file-name="hex.go" pinned="false" current-in-tab="false">
         <entry file="file://C:/Go/src/encoding/hex/hex.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2392">
-              <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
+            <state relative-caret-position="322">
+              <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -52,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="493">
+              <first_editor relative-caret-position="276">
                 <caret line="45" column="3" lean-forward="true" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
               </first_editor>
               <second_editor />
@@ -89,6 +98,7 @@
       <find>minAmount</find>
       <find>unichain</find>
       <find>OEXPlatform</find>
+      <find>rpcHost</find>
     </findStrings>
     <replaceStrings>
       <replace>unichain</replace>
@@ -111,8 +121,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/faucetServer.go" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/faucetServer.go" />
       </list>
     </option>
   </component>
@@ -209,14 +219,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Go/src/encoding/hex/hex.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2392">
-          <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../unichain/types/signer.go" />
     <entry file="file://$PROJECT_DIR$/../unichain/crypto/signature_cgo.go" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
@@ -421,13 +423,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../unichain/crypto/signature_cgo.go" />
     <entry file="file://$PROJECT_DIR$/../unichain/types/signer.go" />
-    <entry file="file://C:/Go/src/encoding/hex/hex.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2392">
-          <caret line="109" column="5" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../unichain/crypto/crypto.go" />
     <entry file="file://C:/Go/src/net/http/request.go">
       <provider selected="true" editor-type-id="text-editor">
@@ -437,16 +432,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../unichain/test/common/utils.go" />
-    <entry file="file://$PROJECT_DIR$/faucetServer.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3262">
-          <caret line="115" column="43" lean-forward="true" selection-start-line="115" selection-start-column="43" selection-end-line="115" selection-end-column="43" />
-          <folding>
-            <element signature="e#14#606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -454,13 +439,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../goproject/src/github.com/oexplatform/oexchain/crypto/crypto.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="149" column="24" lean-forward="true" selection-start-line="149" selection-start-column="24" selection-end-line="149" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/encoding/hex/hex.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="493">
+          <first_editor relative-caret-position="276">
             <caret line="45" column="3" lean-forward="true" selection-start-line="45" selection-start-column="3" selection-end-line="45" selection-end-column="3" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../goproject/src/github.com/oexplatform/oexchain/test/common/utils.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/faucetServer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="284" column="55" selection-start-line="284" selection-start-column="55" selection-end-line="284" selection-end-column="55" />
+          <folding>
+            <element signature="e#14#606#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

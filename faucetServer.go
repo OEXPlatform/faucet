@@ -284,6 +284,8 @@ func main() {
 
 			amount := RandInt64(*minAmount, *maxAmount)
 
+			fmt.Println("url:%s, sender_na:%s, nonce:%d", url, sender_na, cn)
+
 			if err, hash := createAccount(common.Name(accname), sender_na, cn,
 				common.HexToPubKey(pubkey), prikey, chainId, new(big.Int).Mul(big.NewInt(amount), big.NewInt(1e18))); err != nil {
 				resform.Code = 500
