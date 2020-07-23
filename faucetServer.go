@@ -276,7 +276,10 @@ func main() {
 			db.Put(db_status_key, db_value[:], nil)
 
 			// rpc create account
-			url := "http://" + rpcHost + ":" + rpcPort
+			url := rpcHost + ":" + rpcPort
+			if !strings.HasPrefix(url, "http://") {
+				url = "http://" + url
+			}
 			tc.SetDefultURL(url)
 			sender_na := common.Name(na + strconv.Itoa(send_pos))
 			fmt.Println("sender_na:", sender_na)
@@ -284,7 +287,7 @@ func main() {
 
 			amount := RandInt64(*minAmount, *maxAmount)
 
-			fmt.Println("url:%s, sender_na:%s, nonce:%d", url, sender_na, cn)
+			fmt.Printf("input-url:%s, default-url:%s, sender_na:%s, nonce:%d", url, tc.DefultURL(), sender_na, cn)
 
 			if err, hash := createAccount(common.Name(accname), sender_na, cn,
 				common.HexToPubKey(pubkey), prikey, chainId, new(big.Int).Mul(big.NewInt(amount), big.NewInt(1e18))); err != nil {
